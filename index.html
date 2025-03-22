@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DM Combat Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <canvas id="whiteboard"></canvas>
+        <form id="tokenDialog" class="dialog hidden">
+            <div class="input-group">
+                <input type="text" 
+                       id="monsterName" 
+                       placeholder="Monster name" 
+                       list="monsterSuggestions" 
+                       autocomplete="off">
+                <datalist id="monsterSuggestions"></datalist>
+            </div>
+            <input type="number" id="monsterHP" placeholder="Hit points">
+            <button type="button" id="createToken">Create</button>
+            <button type="button" id="cancelToken">Cancel</button>
+        </form>
+    </div>
+    <script type="module">
+        import { TokenManager } from './js/TokenManager.js';
+        import { InputHandler } from './js/InputHandler.js';
+        import { Renderer } from './js/Renderer.js';
+
+        // Initialize app only after DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('whiteboard');
+            const ctx = canvas.getContext('2d');
+            const tokenManager = new TokenManager();
+            const renderer = new Renderer(canvas, ctx, tokenManager);
+            const inputHandler = new InputHandler(canvas, tokenManager, renderer);
+
+            // Set initial canvas size
+            function resizeCanvas() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+                renderer?.render();
+            }
+
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            // Start the render loop
+            renderer.startRenderLoop();
+            renderer.render();
+        });
+    </script>
+</body>
+</html>
