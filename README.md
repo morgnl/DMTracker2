@@ -2,6 +2,8 @@
 
 A digital whiteboard application designed for Dungeon Masters to track combat encounters in D&D 5E. This tool helps DMs manage monster tokens, hit points, and positions during combat without the need for a physical whiteboard.
 
+This tool is meant as a replacement for a small physical whiteboard I use as a DM and physical miniatures on a battle map. Once monsters start moving around, it can be difficult to keep track of which monster has which health.
+
 ## Features
 
 - **Dynamic Token Management**
@@ -25,8 +27,7 @@ A digital whiteboard application designed for Dungeon Masters to track combat en
   - Delete defeated monsters
 
 - **Interface**
-  - Auto-scaling whiteboard that shows all tokens
-  - Zoom in/out functionality
+  - Auto-scaling whiteboard that shows all tokens  
   - Resizable window for vertical or horizontal orientation
   - Clean interface with just the whiteboard and window controls
 
