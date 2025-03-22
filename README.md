@@ -12,8 +12,8 @@ A digital whiteboard application designed for Dungeon Masters to track combat en
 
 - **Easy Health Tracking**
   - Quick HP modification with number keys
-  - Add HP with number keys
-  - Subtract HP using minus + number
+  - Add HP using plus (+) and number
+  - Subtract HP using minus (-) and number
   - Visual health indicator changes from green to red as HP decreases
 
 - **Token Manipulation**
